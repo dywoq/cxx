@@ -10,7 +10,7 @@ include(FetchContent)
 FetchContent_Declare(
     dywoqtest
     GIT_REPOSITORY https://github.com/dywoq/test.git
-    GIT_TAG v1.1.0
+    GIT_TAG v1.1.1
 )
 
 FetchContent_MakeAvailable(dywoqtest)

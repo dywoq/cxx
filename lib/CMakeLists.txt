@@ -10,7 +10,7 @@ include(FetchContent)
 FetchContent_Declare(
     dywoqtest
     GIT_REPOSITORY https://github.com/dywoq/test.git
-    GIT_TAG v1.1.0
+    GIT_TAG v1.1.1
 )
 
 FetchContent_MakeAvailable(dywoqtest)
@@ -29,6 +29,6 @@ target_link_options(${PROJECT_NAME} PRIVATE -nostdlib++)
 # Tests executable
 add_executable(${PROJECT_NAME}_tests tests/main.cxx)
 target_include_directories(${PROJECT_NAME}_tests
-    INTERFACE
+    PRIVATE
         ${dywoqtest_SOURCE_DIR}/include
 )
