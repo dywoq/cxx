@@ -31,7 +31,7 @@ jobs:
       - name: Configure
         run: |
           cmake -S . -B build \
-          ${{ runner.os == 'Windows' && '-G "Visual Studio 17 2022"' || '' }}
+          ${{ runner.os == 'Windows' || '' }}
 
       - name: Build
         run: |
