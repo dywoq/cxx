@@ -2,33 +2,58 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Install tools
+      - name: Install tools (Linux)
+        if: runner.os == 'Linux'
         run: |
           sudo apt update
-          sudo apt install -y cmake g++ build-essential curl unzip
+          sudo apt install -y cmake g++ build-essential
+
+      - name: Setup MSVC (Windows)
+        if: runner.os == 'Windows'
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Configure
+        run: |
+          cmake -S . -B build \
+          ${{ runner.os == 'Windows' && '-G "Visual Studio 17 2022"' || '' }}
 
       - name: Build
         run: |
-          cmake . -B build
-          cmake --build build
+          cmake --build build --config Release
 
       - name: Tests
         run: |
-          cd build/lib
-          ./dywoqstl_lib_tests
+          cd build
 
-          cd ../runtime
-          ./dywoqstl_runtime_tests
+          # Linux
+          if [ "$RUNNER_OS" = "Linux" ]; then
+            cd lib
+            ./dywoqstl_lib_tests
+            cd ../runtime
+            ./dywoqstl_runtime_tests
+          fi
+
+          # Windows
+          if [ "$RUNNER_OS" = "Windows" ]; then
+            cd lib/Release
+            dywoqstl_lib_tests.exe
+            cd ../../runtime/Release
+            dywoqstl_runtime_tests.exe
+          fi
+        shell: bash
