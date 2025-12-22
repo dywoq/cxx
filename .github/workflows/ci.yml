@@ -1,12 +1,25 @@
 name: CI
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
 
 jobs:
+  format-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install
+        run: |
+          sudo apt update
+          sudo apt install clang-format
+
+      - name: Check formatting
+        run: |
+          find . -type f \( -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' \) \
+                      -print0 | xargs -0 clang-format --dry-run --Werror
+
   build-and-test:
     runs-on: ubuntu-latest
 
