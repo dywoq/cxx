@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.28.3)
-project(dywoqstl_runtime)
+project(dywoqcxxstd_runtime)
 
 # ================================
 #         Configuration
