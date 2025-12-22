@@ -26,9 +26,10 @@ jobs:
 
       - name: Run tests
         run: |
-          cd build
-          cd lib
+          cd build/lib
           ./dywoqstl_lib_tests
           cd ../runtime
           ./dywoqstl_runtime_tests
+          cd ../core
+          ./dywoqstl_core_tests
         shell: bash
