@@ -38,7 +38,7 @@ jobs:
         run: |
           cmake --build build --config Debug
 
-      - name: Run tests (Release)
+      - name: Run tests (Debug)
         run: |
           cd build/lib
           ./dywoqcxx_lib_tests
