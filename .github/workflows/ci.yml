@@ -20,7 +20,7 @@ jobs:
       - name: Run clang-tidy
         run: |
           cmake . -B build-tidy -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-          clang-tidy $(find . -name '*.cxx' -name '*.hxx') --warnings-as-errors=*
+          find . -type f \( -name '*.cxx' -o -name '*.hxx' \) -print0 | xargs -0 clang-tidy --warnings-as-errors=*
 
   format-check:
     runs-on: ubuntu-latest
