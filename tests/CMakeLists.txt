@@ -1,5 +1,3 @@
-find_package(GTest REQUIRED)
-
 # Configuration
 
 # FetchContent
