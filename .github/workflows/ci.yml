@@ -52,10 +52,24 @@ jobs:
 
       - name: Configuration (Release and Debug)
         run: |
+          echo [RELEASE] Configuration
           cmake . -B build-release -DCMAKE_BUILD_TYPE=Release
+          echo [DEBUG] Configuration
           cmake . -B build-debug -DCMAKE_BUILD_TYPE=Debug
 
-      - name: Build and Test (Release and Debug)
+      - name: Build (Release and Debug)
         run: |
+          echo [RELEASE] Building
           cmake --build build-release
+          echo [DEBUG] Building
           cmake --build build-debug
+
+      - name: Tests (Release and Debug)
+        run: |
+          echo [RELEASE] Running tests
+          cd build-release
+          ctest
+
+          echo [DEBUG] Running tests
+          cd ../build-debug
+          ctest
