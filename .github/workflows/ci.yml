@@ -15,7 +15,7 @@ jobs:
       - name: Install
         run: |
           sudo apt update
-          sudo apt install clang-tidy gtest
+          sudo apt install clang-tidy
 
       - name: Run clang-tidy
         run: |
@@ -48,7 +48,7 @@ jobs:
       - name: Install tools
         run: |
           sudo apt update
-          sudo apt install -y cmake g++ build-essential gtest
+          sudo apt install -y cmake build-essential
 
       - name: Configuration (Release and Debug)
         run: |
