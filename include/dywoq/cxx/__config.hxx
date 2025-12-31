@@ -1,12 +1,14 @@
 #ifndef _DYWOQ_CXX___CONFIG_HXX
 #define _DYWOQ_CXX___CONFIG_HXX
 
-#ifndef __cplusplus
-#error "No C++ compiler detected"
+#ifdef __cplusplus
+#if __cplusplus >= 202002L
+#define _DYWOQ_CXX__VERSION_SUPPORTED 1
+#else
+#define _DYWOQ_CXX__VERSION_SUPPORTED 0
 #endif
-
-#if !(__cplusplus >= 202002L)
-#error "Requires C++20 or higher"
+#else
+#define _DYWOQ_CXX__VERSION_SUPPORTED 0
 #endif
 
 #endif
