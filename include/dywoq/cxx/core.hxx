@@ -7,16 +7,13 @@
  * Repository:
  * https://github.com/dywoq/cxx
  */
-
 #ifndef _DYWOQ_CXX_CORE_CONSTRAINTS_HXX
 #define _DYWOQ_CXX_CORE_CONSTRAINTS_HXX
 
-#include "../__config.hxx"
+#include "__config.hxx"
 
 #if _DYWOQ_CXX__VERSION_SUPPORTED
-#include "constraints/integral.hxx"
-#include "constraints/same.hxx"
-#include "constraints/satisfied.hxx"
+#include "core/constraints.hxx"
 #endif
 
 #endif
