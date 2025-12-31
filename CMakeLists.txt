@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Source files
-file(GLOB_RECURSE CORE_SOURCES src/core/**/*.cxx src/runtime/*.cxx)
+file(GLOB_RECURSE CORE_SOURCES src/core/**/*.cxx src/core/*.cxx)
 file(GLOB_RECURSE RUNTIME_SOURCES src/runtime/**/*.cxx src/runtime/*.cxx)
 file(GLOB_RECURSE LIB_SOURCES src/lib/**/*.cxx src/lib/*.cxx)
 
