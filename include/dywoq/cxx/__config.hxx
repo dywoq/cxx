@@ -14,6 +14,8 @@
 #define _DYWOQ_CXX__NAMESPACE_CORE_VERSION_BEGIN(version)                                                              \
   namespace dywoq::cxx::core {                                                                                         \
     inline namespace __##version {
-#define _DYWOQ_CXX__NAMESPACE_CORE_VERSION_END } }
+#define _DYWOQ_CXX__NAMESPACE_CORE_VERSION_END                                                                         \
+  }                                                                                                                    \
+  }
 
 #endif
