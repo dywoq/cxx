@@ -1,4 +1,4 @@
-name: CI
+name: Core, Runtime and Standard Library
 
 on:
   push:
