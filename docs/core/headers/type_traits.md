@@ -36,4 +36,4 @@ struct is_same : satisfied<T, false> {};
 template <typename T, typename U> 
 inline constexpr auto is_same_v = is_same<T, U>::yes;
 ```
-- `Description`: Short way to use type trait `is_same<T, U>`.
+- _Description_: Short way to use type trait `is_same<T, U>`.

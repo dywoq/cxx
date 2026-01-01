@@ -17,8 +17,9 @@
 _DYWOQ_CXX__NAMESPACE_CORE_BEGIN_VERSION(v1)
 
 namespace type_traits {
-template<typename _Tp, typename _Ut>
-struct is_same : satisfied<_Tp, false> {};
+  template <typename _Tp, typename _Ut> struct is_same : satisfied<_Tp, false> {};
+  template <typename _Tp> struct is_same<_Tp, _Tp> : satisfied<_Tp, true> {};
+  template <typename _Tp, typename _Ut> inline constexpr auto is_same_v = is_same<_Tp, _Ut>::yes;
 } // namespace type_traits
 
 _DYWOQ_CXX__NAMESPACE_CORE_END_VERSION
