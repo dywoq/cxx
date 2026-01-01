@@ -68,7 +68,6 @@ When you write code for `dywoq/cxx`, put it in the start of the source or header
  * https://github.com/dywoq/cxx
  */
 ```
-Avoid putting it in tests.
 
 ### Use `clang-format`
 To ensure your code aligns with the format of the code, use `clang-format` to format the code.
