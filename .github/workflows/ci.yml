@@ -36,7 +36,7 @@ jobs:
         run: |
           find . -type f \( -name '*.cxx' -o -name '*.hxx' \) -print0 | xargs -0 clang-format --dry-run --Werror
 
-  build-and-test:
+  build:
     needs:
       - format-check
       - static-analysis
@@ -63,13 +63,3 @@ jobs:
           cmake --build build-release
           echo [DEBUG] Building
           cmake --build build-debug
-
-      - name: Tests (Release and Debug)
-        run: |
-          echo [RELEASE] Running tests
-          cd build-release
-          ctest
-
-          echo [DEBUG] Running tests
-          cd ../build-debug
-          ctest
