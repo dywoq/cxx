@@ -7,6 +7,34 @@ on:
     branches: [ "main" ]
 
 jobs:
+  static-analysis:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+
+    - name: Set up Go
+      uses: actions/setup-go@v6
+      with:
+        go-version: '1.25.5'
+        
+    - name: Static analysis
+      run: go vet ./...
+      working-directory: ./tools/spark/
+  
+  format-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+
+    - name: Set up Go
+      uses: actions/setup-go@v6
+      with:
+        go-version: '1.25.5'
+        
+    - name: Format check
+      run: test -z "$(gofmt -l .)"
+      working-directory: ./tools/spark/
+  
   build-and-test-executor:
     runs-on: ubuntu-latest
     steps:
