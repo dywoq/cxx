@@ -1,4 +1,4 @@
-name: Spark (test executor)
+name: Spark (test executor/framework)
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-test-executor:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v5
