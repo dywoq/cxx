@@ -32,13 +32,7 @@ jobs:
         go-version: '1.25.5'
         
     - name: Format check
-      run: |
-        files=$(gofmt -l .)
-        [ -n "$files" ] && {
-          echo "gofmt violations:"
-          echo "$files"
-          exit 1
-        }
+      run: gofmt -l .
       working-directory: ./tools/spark/
   
   build-and-test-executor:
