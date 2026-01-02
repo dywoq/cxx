@@ -1,7 +1,6 @@
 package test
 
 type Standard string
-
 type Type string
 
 type Test struct {
@@ -17,8 +16,8 @@ const (
 )
 
 const (
-	TypeCompilePass Standard = "compile-pass"
-	TypeCompileFail Standard = "compile-fail"
-	TypePass        Standard = "pass"
-	TypeFail        Standard = "fail"
+	TypeCompilePass Type = "compile-pass"
+	TypeCompileFail Type = "compile-fail"
+	TypePass        Type = "pass"
+	TypeFail        Type = "fail"
 )
