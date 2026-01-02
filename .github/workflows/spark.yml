@@ -19,8 +19,8 @@ jobs:
 
     - name: Build
       run: go build -v ./...
-      working-directory: ./tests/spark/
+      working-directory: ./tools/spark/
 
     - name: Test
       run: go test -v ./...
-      working-directory: ./tests/spark/
+      working-directory: ./tools/spark/
